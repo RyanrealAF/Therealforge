@@ -1,215 +1,158 @@
-/* Custom Properties: Dark Elegance Palette */
+/* style.css */
+
+/* Resource Guide: Importing free, open-source Google Fonts substitutes */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fira+Sans+Condensed:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+/* Design Mentor: Dark Elegance Color Palette */
 :root {
-    --color-charcoal: #121212;      /* Matte Black/Charcoal Background */
-    --color-graphite: #2c2c2c;      /* Deep Gray/Brushed Surface */
-    --color-bronze-main: #cd7f32;   /* Primary Bronze Accent */
-    --color-bronze-light: #e09647;  /* Hover/Glow Accent */
-    --color-text-main: #e6e6e6;     /* Primary Readable Text */
-    --font-header: 'Poly', serif; 
-    --font-body: 'Inter', sans-serif;
+    /* Primary Dark Tones */
+    --color-charcoal: #1c1c1c;
+    --color-matte-black: #0a0a0a;
+    --color-deep-gray: #2c2c2c;
+    --color-graphite: #3c3c3c;
+    /* Warm Accents */
+    --color-bronze: #b8860b; /* Primary highlight, hover accent */
+    --color-beige: #f5f5dc; /* High contrast body text */
+    
+    /* Typographic Command Presence (Free Substitutions) */
+    --font-header-primary: 'Archivo Black', sans-serif; /* Bold, Extended, Tactile Precision */
+    --font-header-secondary: 'Fira Sans Condensed', sans-serif; /* Condensed Accent */
+    --font-body: 'Inter', sans-serif; /* Sleek, High-legibility Sans-serif */
 }
 
-/* BASE STYLES & MOBILE-FIRST */
+/* 1. Global & Reset (Minimalist Base) */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: var(--color-charcoal);
-    color: var(--color-text-main);
+    background-color: var(--color-matte-black); /* Matte black background */
+    color: var(--color-beige); /* Warm text color */
     font-family: var(--font-body);
     line-height: 1.6;
-    margin: 0;
     min-height: 100vh;
 }
 
-/* Typography */
-h1, h2, h3 {
-    font-family: var(--font-header);
-    color: var(--color-bronze-light); /* Warm highlights */
-    margin-top: 0;
+/* 2. Typography (Design Mentor: Applying new font roles) */
+
+/* Primary Headers (H1 - H2): Monument Extended aesthetic substitute */
+h1, h2 {
+    font-family: var(--font-header-primary);
+    color: var(--color-bronze); /* Bronze headers for accent */
+    margin-bottom: 0.5em;
+    font-weight: 400; /* Archivo Black is already heavy */
+    letter-spacing: 0.1em; /* Mimic extended look */
 }
 
-.container {
-    padding: 1rem; /* Mobile padding */
-    max-width: 1400px;
-    margin: 0 auto;
+/* Secondary Headers (H3): Sleek Sans-serif / Condensed accent */
+h3, h4 {
+    font-family: var(--font-header-secondary);
+    color: var(--color-beige);
+    margin-bottom: 0.5em;
+    font-weight: 700;
 }
 
-/* Structural Separator for content clarity */
-.separator {
-    border: none;
-    border-top: 1px solid var(--color-graphite);
-    margin: 2rem 0;
+/* 3. Layout (Mobile-First, Responsive) */
+.main-header, .main-footer, #content {
+    width: 90%;
+    max-width: 1000px; /* Max content width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* HEADER & NAVIGATION (Flexbox) */
-.site-header {
+.main-header {
+    padding: 1.5rem 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Mobile first stack */
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
     border-bottom: 1px solid var(--color-graphite);
-    margin-bottom: 2rem;
 }
 
 .logo {
     font-size: 1.8rem;
+    color: var(--color-beige);
     margin-bottom: 1rem;
-    color: var(--color-bronze-main);
+    letter-spacing: 0.15em;
+    font-family: var(--font-header-primary);
 }
 
-.site-header nav a {
-    color: var(--color-text-main);
+.primary-nav {
+    display: flex;
+    flex-wrap: wrap; /* Ensure navigation wraps on tiny screens */
+    justify-content: center;
+}
+
+.primary-nav a {
+    color: var(--color-beige);
     text-decoration: none;
-    margin: 0 0.8rem;
-    padding: 0.25rem 0;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s, border-color 0.3s;
+    margin: 0 0.8rem 0.5rem 0.8rem; /* Added margin for wrapping */
+    transition: color 0.3s ease;
+    font-family: var(--font-header-secondary);
+    text-transform: uppercase;
 }
 
-/* Bronze Accent for Interaction */
-.site-header nav a:hover {
-    color: var(--color-bronze-light); 
-    border-color: var(--color-bronze-main);
+.primary-nav a:hover {
+    color: var(--color-bronze); /* Hover accents in bronze */
 }
 
-/* MODULES (Collapsible Sections) */
+/* 4. Module Styling (Dark Elegance: Matte Panels, Brushed Surfaces) */
 .module {
-    background-color: var(--color-charcoal); 
+    background-color: var(--color-charcoal); /* Matte panel background */
+    margin: 2rem 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle depth */
     border: 1px solid var(--color-graphite);
-    margin-bottom: 1.5rem;
-    border-radius: 6px;
-    
-    /* Subtle Glow Effect for Dark Elegance */
-    box-shadow: 0 0 5px rgba(205, 127, 50, 0.1); 
-    transition: box-shadow 0.3s ease-in-out;
+    padding: 0; 
 }
 
-.module:hover {
-    /* Enhanced subtle glow on hover */
-    box-shadow: 0 0 10px rgba(205, 127, 50, 0.2); 
-}
-
+/* Collapsible Toggle Button Styling */
 .collapsible-toggle {
+    /* Reset button appearance */
+    all: unset; 
+    cursor: pointer;
     width: 100%;
     text-align: left;
-    background-color: var(--color-graphite); 
-    color: var(--color-text-main);
-    border: none;
     padding: 1.5rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-family: var(--font-header);
-    transition: background-color 0.3s;
+    display: block;
+    transition: background-color 0.3s ease;
+    /* Text style inherited from H2 */
 }
 
-/* Design Mentor: Bronze Accent on Hover for the Toggle */
 .collapsible-toggle:hover {
-    background-color: #444444; /* Darker graphite */
-    color: var(--color-bronze-light); /* Highlight text with bronze accent */
+    background-color: var(--color-deep-gray); /* Subtle glow effect on hover */
 }
 
+.collapsible-toggle h2 {
+    color: var(--color-bronze);
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+/* 5. Collapsible Functionality (Core Fix for Buttons) */
 .collapsible-content {
-    padding: 0 1.5rem;
+    /* Default Hidden State (Max-height ensures smooth transition) */
     max-height: 0;
     overflow: hidden;
-    /* Smooth Transition for Collapsing/Expanding */
-    transition: max-height 0.4s ease-in-out;
+    padding: 0 1.5rem;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; 
 }
 
-.collapsible-content.expanded {
-    /* Code Reviewer: Increased safe upper limit for content */
+/* Content State when Open */
+.collapsible-content.is-open {
+    /* Large max-height for smooth transition */
     max-height: 5000px; 
     padding: 1.5rem;
+    padding-top: 0; 
 }
 
-/* --- Content Architect: Styles for the color palette key --- */
-.color-dot {
-    font-weight: bold;
-    margin-right: 0.5rem;
+.collapsible-content p {
+    margin-bottom: 1em;
 }
 
-.dot-graphite {
-    color: var(--color-graphite); 
-}
-
-.dot-graphite-dark {
-    color: #444444; /* Slightly darker hardcoded graphite */
-}
-
-.dot-bronze {
-    color: var(--color-bronze-main);
-}
-
-.dot-text-main {
-    color: var(--color-text-main);
-}
-
-/* --- Enhanced Document Links (High Hook-Rate) --- */
-.document-link {
-    display: flex; /* Use flexbox for icon alignment */
-    align-items: center;
-    justify-content: space-between; /* Push icon to the right */
-    
-    margin-top: 1.5rem;
-    padding: 1rem 1.5rem;
-    
-    /* Bronze button aesthetic */
-    color: var(--color-charcoal); /* Text color becomes the dark charcoal */
-    background-color: var(--color-bronze-main); /* Background becomes bright bronze */
-    
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 700; /* Bold text to draw attention */
-    
-    /* Initial subtle glow for visibility */
-    box-shadow: 0 0 8px rgba(205, 127, 50, 0.4); 
-    transition: all 0.2s ease-in-out;
-}
-
-.document-link:hover {
-    background-color: var(--color-bronze-light); /* Brighter bronze on hover */
-    
-    /* Dramatic glow on hover to draw the eye */
-    box-shadow: 0 0 15px rgba(224, 150, 71, 0.7); 
-    transform: translateY(-2px); /* Subtle lift effect */
-}
-
-/* Custom class for spacing the download icon */
-.document-link-icon {
-    margin-left: 1rem;
-}
-
-/* Footer Style */
-.site-footer {
-    padding: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--color-graphite); /* Dark gray text for subtlety */
-    border-top: 1px solid var(--color-graphite);
-    margin-top: 2rem;
-}
-
-/* DESKTOP LAYOUT (CSS GRID) */
-@media (min-width: 768px) {
-    .site-header {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .logo {
-        margin-bottom: 0;
-    }
-    
-    .container {
-        padding: 2rem;
-        /* Two-column layout for clean, organized content flow */
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-    /* Expert Web Developer: Make the Doctrine section span the full width at desktop */
-    #doctrine, #countermeasure-doctrine {
-        grid-column: span 2;
-    }
+/* Example of a visual cue for expanded state */
+.collapsible-toggle[aria-expanded="true"] {
+    border-bottom: 1px dashed var(--color-bronze);
 }
