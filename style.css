@@ -1,23 +1,23 @@
 /* style.css */
 
-/* Resource Guide: Importing free, open-source Google Fonts substitutes */
+/* Resource Guide: Importing free, open-source Google Fonts substitutes for Typographic Command Presence */
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fira+Sans+Condensed:wght@400;700&family=Inter:wght@400;700&display=swap');
 
 /* Design Mentor: Dark Elegance Color Palette */
 :root {
-    /* Primary Dark Tones */
+    /* Primary Dark Tones (Matte Black & Charcoal) */
     --color-charcoal: #1c1c1c;
     --color-matte-black: #0a0a0a;
     --color-deep-gray: #2c2c2c;
     --color-graphite: #3c3c3c;
-    /* Warm Accents */
-    --color-bronze: #b8860b; /* Primary highlight, hover accent */
-    --color-beige: #f5f5dc; /* High contrast body text */
+    /* Warm Accents (Bronze/Beige) */
+    --color-bronze: #b8860b; 
+    --color-beige: #f5f5dc; 
     
-    /* Typographic Command Presence (Free Substitutions) */
-    --font-header-primary: 'Archivo Black', sans-serif; /* Bold, Extended, Tactile Precision */
-    --font-header-secondary: 'Fira Sans Condensed', sans-serif; /* Condensed Accent */
-    --font-body: 'Inter', sans-serif; /* Sleek, High-legibility Sans-serif */
+    /* Typography: Archivo Black (Primary Header), Fira Sans Condensed (Secondary Header), Inter (Body) */
+    --font-header-primary: 'Archivo Black', sans-serif;
+    --font-header-secondary: 'Fira Sans Condensed', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 /* 1. Global & Reset (Minimalist Base) */
@@ -28,12 +28,190 @@
 }
 
 body {
-    background-color: var(--color-matte-black); /* Matte black background */
-    color: var(--color-beige); /* Warm text color */
+    background-color: var(--color-matte-black);
+    color: var(--color-beige);
     font-family: var(--font-body);
     line-height: 1.6;
     min-height: 100vh;
 }
+
+/* 2. Typography */
+h1, h2 {
+    font-family: var(--font-header-primary);
+    color: var(--color-bronze);
+    margin-bottom: 0.5em;
+    font-weight: 400; 
+    letter-spacing: 0.1em;
+}
+
+h3, h4 {
+    font-family: var(--font-header-secondary);
+    color: var(--color-beige);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+/* 3. Layout (Mobile-First) */
+.main-header, .main-footer, #content {
+    width: 90%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-header {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-graphite);
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: var(--color-beige);
+    margin-bottom: 1rem;
+    letter-spacing: 0.15em;
+    font-family: var(--font-header-primary);
+}
+
+.primary-nav {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.primary-nav a {
+    color: var(--color-beige);
+    text-decoration: none;
+    margin: 0 0.8rem 0.5rem 0.8rem;
+    transition: color 0.3s ease;
+    font-family: var(--font-header-secondary);
+    text-transform: uppercase;
+}
+
+.primary-nav a:hover {
+    color: var(--color-bronze); 
+}
+
+/* 4. Module Styling (Matte Panels) */
+.module {
+    background-color: var(--color-charcoal); 
+    margin: 2rem 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-graphite);
+    padding: 0; 
+}
+
+.module.core {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Collapsible Toggle Button Styling */
+.collapsible-toggle {
+    all: unset; 
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible-toggle:hover {
+    background-color: var(--color-deep-gray);
+}
+
+.collapsible-toggle h2 {
+    color: var(--color-bronze);
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+/* 5. Collapsible Functionality */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; 
+}
+
+.collapsible-content.is-open {
+    max-height: 5000px; 
+    padding: 1.5rem;
+    padding-top: 0; 
+}
+
+/* Content Element Styling */
+.collapsible-content p, .collapsible-content ul, .collapsible-content ol, .collapsible-content dl {
+    margin-bottom: 1.25em;
+}
+
+.collapsible-content strong {
+    color: var(--color-bronze);
+}
+
+/* Tables Styling */
+.content-table-container {
+    overflow-x: auto; /* Ensure responsiveness for tables */
+    margin-bottom: 1.5em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.9rem;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--color-graphite);
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-deep-gray);
+    color: var(--color-bronze);
+    font-family: var(--font-header-secondary);
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-charcoal);
+}
+
+/* Definition List (DL) Styling for Clarity */
+dl {
+    margin-bottom: 1.5em;
+    padding-left: 10px;
+    border-left: 2px solid var(--color-bronze);
+}
+
+dt {
+    font-weight: bold;
+    color: var(--color-bronze);
+    margin-top: 0.75em;
+}
+
+dd {
+    margin-left: 20px;
+    margin-bottom: 0.75em;
+}
+
+/* Footer */
+.main-footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--color-graphite);
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--color-deep-gray);
+}
+
 
 /* 2. Typography (Design Mentor: Applying new font roles) */
 
@@ -156,3 +334,4 @@ h3, h4 {
 .collapsible-toggle[aria-expanded="true"] {
     border-bottom: 1px dashed var(--color-bronze);
 }
+
