@@ -1,27 +1,31 @@
-// Expert Web Developer Note: Focus on readability and minimal DOM manipulation.
+// script.js
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Select all buttons designated as toggles
+// Expert Web Developer: Function to handle collapsible module logic.
+function setupCollapsibleModules() {
+    // Select all buttons used to toggle sections
     const toggles = document.querySelectorAll('.collapsible-toggle');
 
+    // Iterate over each toggle button found
     toggles.forEach(toggle => {
-        // Code Reviewer: Ensure initial state is correctly set if CSS default is collapsed
-        const contentId = toggle.getAttribute('aria-controls');
-        const content = document.getElementById(contentId);
-
-        if (!content) return; // Safety check
-
         toggle.addEventListener('click', () => {
-            
-            // Code Reviewer: Use JSON.parse for cleaner boolean conversion
-            // This safely converts the string "true"/"false" from the attribute to a boolean
-            const isExpanded = JSON.parse(toggle.getAttribute('aria-expanded'));
+            // Get the current state of the button (true/false string)
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-            // Toggle the ARIA state: if it was true, set it to false (and vice versa)
-            toggle.setAttribute('aria-expanded', String(!isExpanded));
-            
-            // Toggle the CSS class that controls the max-height transition
-            content.classList.toggle('expanded');
+            // Toggle the aria-expanded attribute
+            toggle.setAttribute('aria-expanded', !isExpanded);
+
+            // Get the ID of the content panel to show/hide
+            const contentId = toggle.getAttribute('aria-controls');
+            const contentPanel = document.getElementById(contentId);
+
+            if (contentPanel) {
+                // Use a dedicated class to trigger visual changes (like max-height or visibility) 
+                // This will be defined in style.css.
+                contentPanel.classList.toggle('is-open'); 
+            }
         });
     });
-});
+}
+
+// Run the setup function once the document is fully loaded
+document.addEventListener('DOMContentLoaded', setupCollapsibleModules);
