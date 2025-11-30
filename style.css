@@ -104,6 +104,12 @@ h1, h2, h3 {
     transition: background-color 0.3s;
 }
 
+/* Design Mentor: Bronze Accent on Hover for the Toggle */
+.collapsible-toggle:hover {
+    background-color: #444444; /* Darker graphite */
+    color: var(--color-bronze-light); /* Highlight text with bronze accent */
+}
+
 .collapsible-content {
     padding: 0 1.5rem;
     max-height: 0;
@@ -113,7 +119,8 @@ h1, h2, h3 {
 }
 
 .collapsible-content.expanded {
-    max-height: 2000px; /* Increased safe upper limit for new content */
+    /* Code Reviewer: Increased safe upper limit for content */
+    max-height: 5000px; 
     padding: 1.5rem;
 }
 
@@ -169,11 +176,20 @@ h1, h2, h3 {
     transform: translateY(-2px); /* Subtle lift effect */
 }
 
-/* FIX: New class for spacing the download icon, resolving inline style warning */
+/* Custom class for spacing the download icon */
 .document-link-icon {
     margin-left: 1rem;
 }
 
+/* Footer Style */
+.site-footer {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-graphite); /* Dark gray text for subtlety */
+    border-top: 1px solid var(--color-graphite);
+    margin-top: 2rem;
+}
 
 /* DESKTOP LAYOUT (CSS GRID) */
 @media (min-width: 768px) {
@@ -191,5 +207,9 @@ h1, h2, h3 {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
+    }
+    /* Expert Web Developer: Make the Doctrine section span the full width at desktop */
+    #doctrine, #countermeasure-doctrine {
+        grid-column: span 2;
     }
 }

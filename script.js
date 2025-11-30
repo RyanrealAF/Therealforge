@@ -5,21 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggles = document.querySelectorAll('.collapsible-toggle');
 
     toggles.forEach(toggle => {
+        // Code Reviewer: Ensure initial state is correctly set if CSS default is collapsed
+        const contentId = toggle.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+
+        if (!content) return; // Safety check
+
         toggle.addEventListener('click', () => {
-            // Get the ID of the content panel to control from the ARIA attribute
-            const contentId = toggle.getAttribute('aria-controls');
-            const content = document.getElementById(contentId);
+            
+            // Code Reviewer: Use JSON.parse for cleaner boolean conversion
+            // This safely converts the string "true"/"false" from the attribute to a boolean
+            const isExpanded = JSON.parse(toggle.getAttribute('aria-expanded'));
 
-            if (!content) return; // Safety check
-
-            // Check current state (true if expanded, false if collapsed)
-            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-            // Toggle the ARIA state
+            // Toggle the ARIA state: if it was true, set it to false (and vice versa)
             toggle.setAttribute('aria-expanded', String(!isExpanded));
             
             // Toggle the CSS class that controls the max-height transition
-            // This is the functional mandate for the collapsible module behavior.
             content.classList.toggle('expanded');
         });
     });
