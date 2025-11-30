@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RyanrealAF | The Real Forge</title>
     
+    <!-- Safety Checker: Linking only free, open-source Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poly:ital@0;1&display=swap" rel="stylesheet">
 
+    <!-- Linking custom Dark Elegance styles -->
     <link rel="stylesheet" href="style.css">
     
 </head>
@@ -21,6 +23,7 @@
 
     <main id="content" class="container">
         
+        <!-- Module 1: The Doctrine - Core Philosophy -->
         <section class="module" id="doctrine">
             <button class="collapsible-toggle" aria-expanded="true" aria-controls="doctrine-content">
                 <h2>The Doctrine of Dark Elegance</h2>
@@ -45,10 +48,25 @@
                         <li><span class="color-dot dot-bronze">🟠</span> **Bronze:** Primary accent for calls-to-action and links (Interaction).</li>
                         <li><span class="color-dot dot-text-main">⚪</span> **Warm Highlight:** Primary text color (Readability).</li>
                     </ul>
+
+                    <!-- Content Architect: High-impact Download Links. NOTE: Inline style removed from icon here. -->
+                    <h3>Downloadable Resources</h3>
+                    <p>Unlock the **Exclusive Offline Resource**: A printable summary of the core principles to guide your long-term focus.</p>
+
+                    <a href="documents/doctrine-v1.pdf" target="_blank" class="document-link">
+                        <span>Download: The Printable Doctrine Guide (PDF)</span>
+                        <span aria-hidden="true" class="document-link-icon">⬇️</span> 
+                    </a>
+                    
+                    <a href="documents/policy-summary.pdf" target="_blank" class="document-link">
+                        <span>Download: Detailed Workflow Policy (PDF)</span>
+                        <span aria-hidden="true" class="document-link-icon">⬇️</span> 
+                    </a>
                 </article>
             </div>
         </section>
 
+        <!-- Module 2: The Workflow - Tools and Practices -->
         <section class="module" id="workspace">
             <button class="collapsible-toggle" aria-expanded="false" aria-controls="workspace-content">
                 <h2>Workspace & Free Tool Workflow</h2>
@@ -64,6 +82,26 @@
                         <li>**Chrome DevTools:** Essential for debugging, performance testing, and ensuring mobile-first responsiveness.</li>
                     </ol>
                     
+                    <!-- Content Architect: New Document Creation Section -->
+                    <hr class="separator">
+                    
+                    <h3>Document Creation Pipeline (PDF Assets)</h3>
+                    <p>Creating and managing official documentation assets is integrated into the free tool workflow, ensuring consistency and adherence to the \textbf{Dark Elegance} typography.</p>
+                    
+                    <h4>Recommended Free Toolchain:</h4>
+                    <dl>
+                        <dt>**Typing/Writing**</dt>
+                        <dd>Use **LaTeX** (via VS Code extensions or an online editor like Overleaf) or **LibreOffice Writer** (Free/Open Source) to draft the document content. The **LaTeX** environment is recommended for creating highly structured, formal documents like your strategic doctrine.</dd>
+
+                        <dt>**Styling/Export**</dt>
+                        <dd>When using LaTeX, the preamble ensures professional formatting and clean typography. For other tools, export directly to a high-quality PDF format, minimizing file size to maintain website performance.</dd>
+
+                        <dt>**Deployment**</dt>
+                        <dd>All final $\texttt{.pdf}$ files must be saved in the dedicated $\texttt{documents/}$ folder within the project root. This ensures a reliable relative link on GitHub Pages.</dd>
+                    </dl>
+                    
+                    <hr class="separator">
+
                     <h3>Coding Best Practices (Expert Web Developer)</h3>
                     <p>We prioritize foundational web technologies and accessibility:</p>
                     
@@ -85,6 +123,7 @@
         <p>Built with Vanilla JS, CSS Grid, and the Doctrine of Dark Elegance. &copy; 2025.</p>
     </footer>
 
+    <!-- Expert Web Developer: Simple, efficient Vanilla JS script -->
     <script src="script.js"></script>
 </body>
 </html>

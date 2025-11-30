@@ -36,6 +36,13 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
+/* Structural Separator for content clarity */
+.separator {
+    border: none;
+    border-top: 1px solid var(--color-graphite);
+    margin: 2rem 0;
+}
+
 /* HEADER & NAVIGATION (Flexbox) */
 .site-header {
     display: flex;
@@ -106,11 +113,11 @@ h1, h2, h3 {
 }
 
 .collapsible-content.expanded {
-    max-height: 1000px; /* Safe upper limit */
+    max-height: 2000px; /* Increased safe upper limit for new content */
     padding: 1.5rem;
 }
 
-/* --- Content Architect/Design Mentor: Styles for the color palette key --- */
+/* --- Content Architect: Styles for the color palette key --- */
 .color-dot {
     font-weight: bold;
     margin-right: 0.5rem;
@@ -130,6 +137,41 @@ h1, h2, h3 {
 
 .dot-text-main {
     color: var(--color-text-main);
+}
+
+/* --- Enhanced Document Links (High Hook-Rate) --- */
+.document-link {
+    display: flex; /* Use flexbox for icon alignment */
+    align-items: center;
+    justify-content: space-between; /* Push icon to the right */
+    
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    
+    /* Bronze button aesthetic */
+    color: var(--color-charcoal); /* Text color becomes the dark charcoal */
+    background-color: var(--color-bronze-main); /* Background becomes bright bronze */
+    
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700; /* Bold text to draw attention */
+    
+    /* Initial subtle glow for visibility */
+    box-shadow: 0 0 8px rgba(205, 127, 50, 0.4); 
+    transition: all 0.2s ease-in-out;
+}
+
+.document-link:hover {
+    background-color: var(--color-bronze-light); /* Brighter bronze on hover */
+    
+    /* Dramatic glow on hover to draw the eye */
+    box-shadow: 0 0 15px rgba(224, 150, 71, 0.7); 
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* FIX: New class for spacing the download icon, resolving inline style warning */
+.document-link-icon {
+    margin-left: 1rem;
 }
 
 

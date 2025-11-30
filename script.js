@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggle.setAttribute('aria-expanded', String(!isExpanded));
             
             // Toggle the CSS class that controls the max-height transition
+            // This is the functional mandate for the collapsible module behavior.
             content.classList.toggle('expanded');
         });
     });
