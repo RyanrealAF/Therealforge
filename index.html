@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RyanrealAF | The Real Forge</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poly:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header class="site-header">
+        <h1 class="logo">The Real Forge</h1>
+        <nav aria-label="Main Navigation">
+            <a href="#doctrine">Doctrine</a>
+            <a href="#workspace">Workspace</a>
+        </nav>
+    </header>
+
+    <main id="content" class="container">
+        
+        <section class="module" id="doctrine">
+            <button class="collapsible-toggle" aria-expanded="true" aria-controls="doctrine-content">
+                <h2>The Doctrine of Dark Elegance</h2>
+            </button>
+            <div class="collapsible-content expanded" id="doctrine-content">
+                <article>
+                    <h3>First Tenet: Purposeful Minimalism</h3>
+                    <p>Every element must earn its place. Clutter is avoided to maximize learning clarity and focus. This design philosophy translates into high-contrast text, deliberate spacing, and the avoidance of extraneous visual noise.</p>
+                    
+                    <figure>
+                        <blockquote>"If a design element is not educational, it is a distraction."</blockquote>
+                        <figcaption>— Core principle of the Forge</figcaption>
+                    </figure>
+
+                    <h3>Second Tenet: Contrast & Control</h3>
+                    <p>Utilize dark backgrounds (charcoal, matte black) with controlled warm highlights (bronze, beige) to reduce eye strain and establish a focused, elegant atmosphere.</p>
+                    
+                    <h4>Color Palette Breakdown:</h4>
+                    <ul>
+                        <li><span class="color-dot dot-graphite">⚫</span> **Charcoal/Matte Black:** Primary background (Privacy & Focus).</li>
+                        <li><span class="color-dot dot-graphite-dark">⚫</span> **Graphite/Deep Gray:** Section borders and separators (Structure).</li>
+                        <li><span class="color-dot dot-bronze">🟠</span> **Bronze:** Primary accent for calls-to-action and links (Interaction).</li>
+                        <li><span class="color-dot dot-text-main">⚪</span> **Warm Highlight:** Primary text color (Readability).</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="module" id="workspace">
+            <button class="collapsible-toggle" aria-expanded="false" aria-controls="workspace-content">
+                <h2>Workspace & Free Tool Workflow</h2>
+            </button>
+            <div class="collapsible-content" id="workspace-content">
+                <article>
+                    <h3>Toolstack (Resource Guide Compliance)</h3>
+                    <p>The entire workflow uses only free, open-source, or permissively licensed tools to maintain cost-free development and privacy.</p>
+                    
+                    <ol>
+                        <li>**VS Code:** Default editor for all code creation and management.</li>
+                        <li>**GitHub:** Primary resource for version control and free static hosting (GitHub Pages).</li>
+                        <li>**Chrome DevTools:** Essential for debugging, performance testing, and ensuring mobile-first responsiveness.</li>
+                    </ol>
+                    
+                    <h3>Coding Best Practices (Expert Web Developer)</h3>
+                    <p>We prioritize foundational web technologies and accessibility:</p>
+                    
+                    <aside>
+                        <h4>Accessibility Checklist:</h4>
+                        <ul>
+                            <li>Use **Semantic HTML** (e.g., `<main>`, `<section>`, `<button>`).</li>
+                            <li>Ensure **High Contrast** for all text (addressed by Dark Elegance palette).</li>
+                            <li>Provide **ARIA attributes** on interactive elements (e.g., `aria-expanded` on toggles).</li>
+                        </ul>
+                    </aside>
+                </article>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="site-footer">
+        <p>Built with Vanilla JS, CSS Grid, and the Doctrine of Dark Elegance. &copy; 2025.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
