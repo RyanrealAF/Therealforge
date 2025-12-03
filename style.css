@@ -1,25 +1,22 @@
 /*
- * Design Mentor: Dark Elegance Palette
- * Charcoal: #36454F
- * Matte Black: #121212 (Base Background)
- * Graphite: #282828 (Module Background)
- * Deep Gray: #555555
- * Bronze/Beige Accents: #B8860B (Bronze) / #F5F5DC (Beige/Text Highlight)
- * Lighting: Warm highlights and subtle glow effects
+ * Design Mentor: Dark Elegance Palette and Guidelines
+ * Color Palette: matte black, graphite, charcoal, deep gray with bronze/beige accents.
+ * Layout: clean structure, responsive layout, CSS Grid/Flexbox.
+ * Lighting: dark backgrounds with warm highlights, subtle glow effects.
  */
 
 :root {
-    --color-background: #121212;
-    --color-module-bg: #1c1c1c; /* Slightly lighter for separation */
+    --color-background: #121212; /* Matte Black Base */
+    --color-module-bg: #1c1c1c; /* Graphite/Deep Gray Module Background */
     --color-text-primary: #f2f2f2;
     --color-text-secondary: #aaaaaa;
-    --color-accent-bronze: #cd7f32; /* Richer bronze */
-    --color-accent-highlight: #f5f5dc; /* Beige accent for focus */
+    --color-accent-bronze: #cd7f32; /* Bronze accent */
+    --color-accent-highlight: #f5f5dc; /* Beige/warm highlight for headers */
     --color-border: #36454F; /* Charcoal border */
 
     /* Typography */
-    --font-header: 'Space Mono', monospace; /* Bold headers (geometric) */
-    --font-body: 'Inter', sans-serif; /* Sleek sans-serif body */
+    --font-header: 'Space Mono', monospace; 
+    --font-body: 'Inter', sans-serif; 
 }
 
 /* Base Styles & Reset */
@@ -30,7 +27,7 @@
 }
 
 html {
-    /* Optimizing for mobile-first design */
+    /* Optimize for mobile-first design */
     font-size: 16px;
 }
 
@@ -72,10 +69,9 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
-/* --- Layout: CSS Grid/Flexbox --- */
+/* --- Layout: Header and Navigation (Flexbox) --- */
 
 .main-header {
-    /* Using Flexbox for navigation (responsive layout) */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -87,7 +83,7 @@ a:hover, a:focus {
 
 .primary-nav {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on small screens */
+    flex-wrap: wrap; 
     margin-top: 1rem;
     justify-content: center;
 }
@@ -108,9 +104,9 @@ a:hover, a:focus {
 }
 
 #content {
-    /* Main container using simple grid for structure */
+    /* Main container using grid for structure (constrained width) */
     display: grid;
-    grid-template-columns: minmax(300px, 1200px); /* Constrained width */
+    grid-template-columns: minmax(300px, 1200px); 
     justify-content: center;
     padding: 2rem 5%;
     gap: 2rem;
@@ -124,12 +120,12 @@ a:hover, a:focus {
     padding: 1.5rem;
     border-radius: 4px;
     /* Materials & Texture: Subtle glow */
-    box-shadow: 0 0 5px rgba(205, 127, 50, 0.1); /* Subtle bronze glow */
+    box-shadow: 0 0 5px rgba(205, 127, 50, 0.1); 
     transition: box-shadow 0.3s ease;
 }
 
 .module:hover {
-    box-shadow: 0 0 15px rgba(205, 127, 50, 0.2);
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.2); /* Hover accent in bronze */
 }
 
 /* Collapsible Toggle Button Styling */
@@ -154,29 +150,28 @@ a:hover, a:focus {
 }
 
 .collapsible-content {
-    /* Hidden by default, shown by JavaScript */
+    /* This section is controlled by script.js for smooth transitions */
     max-height: 0;
     overflow: hidden;
     padding-top: 0;
-    transition: max-height 0.4s ease-out, padding-top 0.4s ease-out;
+    padding-bottom: 0;
+    transition: max-height 0.4s ease-out, padding-top 0.4s ease-out, padding-bottom 0.4s ease-out;
 }
 
-.collapsible-content p, .collapsible-content ul, .collapsible-content dl {
+.collapsible-content p, .collapsible-content ul, .collapsible-content dl, .collapsible-content .content-table-container {
     margin-top: 1rem;
 }
 
-/* --- Content Specifics --- */
-
 /* Tables for data organization */
 .content-table-container {
-    overflow-x: auto; /* Ensure tables are mobile-responsive */
+    overflow-x: auto; 
     margin: 1.5rem 0;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #242424; /* Darker interior for contrast */
+    background-color: #242424; 
 }
 
 th, td {
@@ -192,7 +187,7 @@ th {
     font-size: 0.85rem;
 }
 
-/* Definition List (HUMINT Network) */
+/* Definition List (Hierarchy/Tactics) */
 dl {
     padding-left: 1rem;
     border-left: 2px solid var(--color-accent-bronze);
@@ -207,14 +202,6 @@ dd {
     padding-bottom: 0.5rem;
 }
 
-/* Lists and Quotes */
-ul, ol {
-    margin-left: 20px;
-}
-li {
-    margin-bottom: 0.5rem;
-}
-
 /* --- Footer --- */
 .main-footer {
     text-align: center;
@@ -225,12 +212,11 @@ li {
     background-color: var(--color-module-bg);
 }
 
-/* --- Responsive Adjustments (Mobile-First Optimization) --- */
+/* --- Responsive Adjustments --- */
 
-/* For screens larger than 768px (Desktop/Tablet) */
 @media (min-width: 768px) {
     .main-header {
-        flex-direction: row; /* Horizontal layout for desktop */
+        flex-direction: row; 
     }
     .primary-nav {
         margin-top: 0;
