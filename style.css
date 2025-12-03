@@ -51,10 +51,10 @@ h3, h4 {
     font-weight: 700;
 }
 
-/* 3. Layout (Mobile-First) */
+/* 3. Layout (Mobile-First, Responsive) */
 .main-header, .main-footer, #content {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1000px; /* Max content width */
     margin-left: auto;
     margin-right: auto;
 }
@@ -62,7 +62,7 @@ h3, h4 {
 .main-header {
     padding: 1.5rem 0;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column; /* Mobile first stack */
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-graphite);
@@ -78,7 +78,7 @@ h3, h4 {
 
 .primary-nav {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap; /* Ensure navigation wraps on tiny screens */
     justify-content: center;
 }
 
@@ -92,15 +92,15 @@ h3, h4 {
 }
 
 .primary-nav a:hover {
-    color: var(--color-bronze); 
+    color: var(--color-bronze); /* Hover accents in bronze */
 }
 
-/* 4. Module Styling (Matte Panels) */
+/* 4. Module Styling (Dark Elegance: Matte Panels, Brushed Surfaces) */
 .module {
-    background-color: var(--color-charcoal); 
+    background-color: var(--color-charcoal); /* Matte panel background */
     margin: 2rem 0;
     border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle depth */
     border: 1px solid var(--color-graphite);
     padding: 0; 
 }
@@ -117,12 +117,14 @@ h3, h4 {
     width: 100%;
     text-align: left;
     padding: 1.5rem;
-    display: block;
+    display: flex; /* Enable Flexbox for icon alignment */
+    justify-content: space-between; /* Push icon to the right */
+    align-items: center;
     transition: background-color 0.3s ease;
 }
 
 .collapsible-toggle:hover {
-    background-color: var(--color-deep-gray);
+    background-color: var(--color-deep-gray); /* Subtle glow effect on hover */
 }
 
 .collapsible-toggle h2 {
@@ -131,15 +133,58 @@ h3, h4 {
     font-size: 1.25rem;
 }
 
+/* Design Mentor: Styling for the Collapsible Toggle Icon (Plus/Minus) */
+.toggle-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+/* Base state: Horizontal line for the '+' */
+.toggle-icon::before,
+.toggle-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-bronze);
+    transition: transform 0.3s ease;
+}
+
+/* Horizontal line for the '+' */
+.toggle-icon::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    margin-top: -1px;
+}
+
+/* Vertical line for the '+' */
+.toggle-icon::after {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+}
+
+/* Expanded State: Transform the vertical bar to match the horizontal bar (minus sign) */
+.collapsible-toggle[aria-expanded="true"] .toggle-icon::after {
+    transform: rotate(90deg); /* This effectively hides the vertical line visually */
+}
+
 /* 5. Collapsible Functionality */
 .collapsible-content {
+    /* Default Hidden State (Max-height ensures smooth transition) */
     max-height: 0;
     overflow: hidden;
     padding: 0 1.5rem;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; 
 }
 
+/* Content State when Open */
 .collapsible-content.is-open {
+    /* Large max-height for smooth transition */
     max-height: 5000px; 
     padding: 1.5rem;
     padding-top: 0; 
@@ -202,7 +247,7 @@ dd {
     margin-bottom: 0.75em;
 }
 
-/* Footer */
+/* Footer (Design Mentor: Dark Elegance - deep gray text, graphite line) */
 .main-footer {
     padding: 2rem 0;
     text-align: center;
@@ -211,127 +256,3 @@ dd {
     font-size: 0.8rem;
     color: var(--color-deep-gray);
 }
-
-
-/* 2. Typography (Design Mentor: Applying new font roles) */
-
-/* Primary Headers (H1 - H2): Monument Extended aesthetic substitute */
-h1, h2 {
-    font-family: var(--font-header-primary);
-    color: var(--color-bronze); /* Bronze headers for accent */
-    margin-bottom: 0.5em;
-    font-weight: 400; /* Archivo Black is already heavy */
-    letter-spacing: 0.1em; /* Mimic extended look */
-}
-
-/* Secondary Headers (H3): Sleek Sans-serif / Condensed accent */
-h3, h4 {
-    font-family: var(--font-header-secondary);
-    color: var(--color-beige);
-    margin-bottom: 0.5em;
-    font-weight: 700;
-}
-
-/* 3. Layout (Mobile-First, Responsive) */
-.main-header, .main-footer, #content {
-    width: 90%;
-    max-width: 1000px; /* Max content width */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.main-header {
-    padding: 1.5rem 0;
-    display: flex;
-    flex-direction: column; /* Mobile first stack */
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--color-graphite);
-}
-
-.logo {
-    font-size: 1.8rem;
-    color: var(--color-beige);
-    margin-bottom: 1rem;
-    letter-spacing: 0.15em;
-    font-family: var(--font-header-primary);
-}
-
-.primary-nav {
-    display: flex;
-    flex-wrap: wrap; /* Ensure navigation wraps on tiny screens */
-    justify-content: center;
-}
-
-.primary-nav a {
-    color: var(--color-beige);
-    text-decoration: none;
-    margin: 0 0.8rem 0.5rem 0.8rem; /* Added margin for wrapping */
-    transition: color 0.3s ease;
-    font-family: var(--font-header-secondary);
-    text-transform: uppercase;
-}
-
-.primary-nav a:hover {
-    color: var(--color-bronze); /* Hover accents in bronze */
-}
-
-/* 4. Module Styling (Dark Elegance: Matte Panels, Brushed Surfaces) */
-.module {
-    background-color: var(--color-charcoal); /* Matte panel background */
-    margin: 2rem 0;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle depth */
-    border: 1px solid var(--color-graphite);
-    padding: 0; 
-}
-
-/* Collapsible Toggle Button Styling */
-.collapsible-toggle {
-    /* Reset button appearance */
-    all: unset; 
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    padding: 1.5rem;
-    display: block;
-    transition: background-color 0.3s ease;
-    /* Text style inherited from H2 */
-}
-
-.collapsible-toggle:hover {
-    background-color: var(--color-deep-gray); /* Subtle glow effect on hover */
-}
-
-.collapsible-toggle h2 {
-    color: var(--color-bronze);
-    margin: 0;
-    font-size: 1.25rem;
-}
-
-/* 5. Collapsible Functionality (Core Fix for Buttons) */
-.collapsible-content {
-    /* Default Hidden State (Max-height ensures smooth transition) */
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 1.5rem;
-    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; 
-}
-
-/* Content State when Open */
-.collapsible-content.is-open {
-    /* Large max-height for smooth transition */
-    max-height: 5000px; 
-    padding: 1.5rem;
-    padding-top: 0; 
-}
-
-.collapsible-content p {
-    margin-bottom: 1em;
-}
-
-/* Example of a visual cue for expanded state */
-.collapsible-toggle[aria-expanded="true"] {
-    border-bottom: 1px dashed var(--color-bronze);
-}
-
