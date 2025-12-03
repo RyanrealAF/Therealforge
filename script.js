@@ -1,32 +1,47 @@
-// script.js
-// Expert Web Developer: Handles the logic for collapsible sections, prioritizing accessibility.
+// Expert Web Developer: Simple, vanilla JS for clean structure and no frameworks.
 
-function setupCollapsibleModules() {
-    // Select all buttons used to toggle sections
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all elements with the class 'collapsible-toggle'
     const toggles = document.querySelectorAll('.collapsible-toggle');
 
-    // Iterate over each toggle button found
     toggles.forEach(toggle => {
-        // Safety Checker: Attach event listener to handle click
+        // Find the corresponding content area using the 'aria-controls' attribute
+        const contentId = toggle.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+
+        // Safety Checker / Accessibility: Ensure initial state is closed
+        if (content) {
+            // Set initial state for accessibility (defaulted to false in HTML)
+            // content.style.maxHeight = '0'; // MaxHeight is set via CSS transition
+            toggle.setAttribute('aria-expanded', 'false'); 
+        }
+
+        // Add click event listener to each button
         toggle.addEventListener('click', () => {
-            // Determine current state
+            if (!content) return; // Exit if content not found
+
+            // Check the current expanded state
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-            
-            // 1. Toggle the accessibility attribute (Crucial for screen readers)
-            toggle.setAttribute('aria-expanded', !isExpanded);
 
-            // 2. Find the content panel using aria-controls ID
-            const contentId = toggle.getAttribute('aria-controls');
-            const contentPanel = document.getElementById(contentId);
-
-            if (contentPanel) {
-                // 3. Toggle the 'is-open' class to trigger CSS transition
-                // This manages the height transition and padding/border visual cues
-                contentPanel.classList.toggle('is-open'); 
+            if (isExpanded) {
+                // Collapse the section
+                toggle.setAttribute('aria-expanded', 'false');
+                content.style.maxHeight = '0';
+                content.style.paddingTop = '0';
+                content.style.paddingBottom = '0';
+            } else {
+                // Expand the section
+                toggle.setAttribute('aria-expanded', 'true');
+                // Set maxHeight to the scroll height to allow CSS transition
+                // A small delay ensures the browser calculates the height correctly
+                setTimeout(() => {
+                     // Add vertical padding for the content when open
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.paddingTop = '1.5rem';
+                    content.style.paddingBottom = '1rem';
+                }, 10);
+               
             }
         });
     });
-}
-
-// Ensure the script runs only after the entire document structure is loaded.
-document.addEventListener('DOMContentLoaded', setupCollapsibleModules);
+});
