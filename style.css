@@ -123,6 +123,17 @@ h3, h4 {
     transition: background-color 0.3s ease;
 }
 
+/* FIX: Debugging Assistant: Ensures clicks on nested elements are passed to the parent button */
+.collapsible-toggle * {
+    pointer-events: none;
+}
+
+/* Code Reviewer: Adding a strong, custom focus state for accessibility */
+.collapsible-toggle:focus-visible {
+    outline: 2px solid var(--color-bronze);
+    outline-offset: -4px; /* Pull outline slightly inward for a cleaner look */
+}
+
 .collapsible-toggle:hover {
     background-color: var(--color-deep-gray); /* Subtle glow effect on hover */
 }
@@ -254,5 +265,6 @@ dd {
     border-top: 1px solid var(--color-graphite);
     margin-top: 3rem;
     font-size: 0.8rem;
-    color: var(--color-deep-gray);
+    /* Improved contrast for accessibility */
+    color: var(--color-graphite); 
 }
