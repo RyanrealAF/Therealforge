@@ -3,42 +3,58 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Select all collapsible-toggle buttons
     const toggles = document.querySelectorAll('.collapsible-toggle');
+    const transitionDuration = 400; // Matches CSS transition time (0.4s)
 
     toggles.forEach(toggle => {
         // Get the ID of the content panel from the 'aria-controls' attribute
         const contentId = toggle.getAttribute('aria-controls');
         const content = document.getElementById(contentId);
 
-        // Safety Checker / Accessibility: Ensure the button has a role and the initial state is closed
+        // Set initial state for accessibility
         if (content) {
             toggle.setAttribute('aria-expanded', 'false'); 
+            // Ensure initial style state matches the CSS for closed content
+            content.style.maxHeight = '0'; 
         }
 
         // Add the click handler
         toggle.addEventListener('click', () => {
-            if (!content) return; // Exit if no content is linked
+            if (!content) return;
 
-            // Check current state
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
             if (isExpanded) {
-                // Collapse the section (smooth transition)
-                toggle.setAttribute('aria-expanded', 'false');
-                content.style.maxHeight = '0';
-                content.style.paddingTop = '0';
-                content.style.paddingBottom = '0';
+                // COLLAPSE:
+                
+                // 1. Reset maxHeight to its *actual* current height before starting transition to '0'.
+                // This is crucial if maxHeight was previously set to a large fixed value (e.g., '5000px').
+                content.style.maxHeight = content.scrollHeight + 'px';
+
+                // 2. Use a delay to ensure the browser registers the actual height before animating to '0'.
+                setTimeout(() => {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = '0';
+                    content.style.paddingTop = '0';
+                    content.style.paddingBottom = '0';
+                }, 10);
+                
             } else {
-                // Expand the section (smooth transition)
+                // EXPAND:
                 toggle.setAttribute('aria-expanded', 'true');
                 
-                // Use a timeout to ensure the browser calculates scrollHeight correctly
+                // 1. Set padding first, so scrollHeight calculation includes the space it will take up.
+                content.style.paddingTop = '1.5rem';
+                content.style.paddingBottom = '1rem';
+
+                // 2. Set maxHeight to the actual scrollHeight + padding. This starts the transition.
+                // The browser transitions from 0 to this calculated height.
+                content.style.maxHeight = content.scrollHeight + 'px';
+                
+                // 3. After the transition is visually complete, set maxHeight to a guaranteed large value.
+                // This prevents clipping if the content size or window size changes later.
                 setTimeout(() => {
-                    // Set maxHeight to the calculated scrollHeight to trigger the CSS transition
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    // Add vertical padding for the open state
-                    content.style.paddingTop = '1.5rem';
-                    content.style.paddingBottom = '1rem';
-                }, 10);
+                    content.style.maxHeight = '5000px'; // Arbitrarily large value to act as 'auto'
+                }, transitionDuration);
             }
         });
     });
