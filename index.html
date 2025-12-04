@@ -20,10 +20,17 @@
             <a href="#defense-doctrine">Defense</a>
             <a href="#workspace">Workspace</a>
         </nav>
+        <button class="btn-primary">Deploy System</button>
     </header>
 
     <main id="content">
         
+        <div class="search-container">
+            <form role="search">
+                <input type="search" id="protocol-search" name="q" placeholder="Search Protocols..." aria-label="Search through protocols">
+            </form>
+        </div>
+
         <section class="module core" id="core-doctrine">
             <h2>Web burner manifesto: Forensic Analysis</h2>
             <p>Welcome to the core philosophy. Every element must earn its place. The following modules deconstruct the architecture of systematic psychological warfare and social manipulation.</p>
@@ -218,7 +225,13 @@
 
     </main>
     <footer class="main-footer">
-        <p>&copy; 2025 RyanrealAF. Doctrine of Dark Elegance Applied.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 RyanrealAF. Doctrine of Dark Elegance Applied.</p>
+            <div class="reading-mode-toggle">
+                <label for="reading-mode">Reading Mode</label>
+                <input type="checkbox" id="reading-mode" class="toggle-switch">
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

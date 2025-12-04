@@ -103,6 +103,27 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
+/* Primary Button */
+.btn-primary {
+    background-color: var(--color-module-bg);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-accent-bronze);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-header);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(205, 127, 50, 0.2);
+    margin-top: 1rem; /* For mobile view */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-bronze);
+    color: var(--color-background);
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.5);
+}
+
 #content {
     /* Main container using grid for structure (constrained width) */
     display: grid;
@@ -111,6 +132,35 @@ a:hover, a:focus {
     padding: 2rem 5%;
     gap: 2rem;
 }
+
+/* Search Input Container */
+.search-container {
+    width: 100%;
+}
+
+.search-container input[type="search"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-module-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container input[type="search"]::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+}
+
+.search-container input[type="search"]:focus {
+    outline: none;
+    border-color: var(--color-accent-bronze);
+    box-shadow: 0 0 10px rgba(205, 127, 50, 0.2);
+}
+
 
 /* --- Module Styles (Collapsible Sections) --- */
 
@@ -205,10 +255,60 @@ dd {
 /* --- Footer --- */
 .main-footer {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem 5%;
     border-top: 1px solid var(--color-border);
     color: var(--color-text-secondary);
     font-size: 0.8rem;
+    background-color: var(--color-module-bg);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Reading Mode Toggle Switch */
+.reading-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background-color: var(--color-border);
+    border-radius: 34px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.toggle-switch::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-text-secondary);
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-switch:checked {
+    background-color: var(--color-accent-bronze);
+}
+
+.toggle-switch:checked::before {
+    transform: translateX(20px);
     background-color: var(--color-module-bg);
 }
 
@@ -217,9 +317,18 @@ dd {
 @media (min-width: 768px) {
     .main-header {
         flex-direction: row; 
+        gap: 1.5rem;
     }
     .primary-nav {
         margin-top: 0;
         justify-content: flex-end;
     }
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .btn-primary { margin-top: 0; }
 }
