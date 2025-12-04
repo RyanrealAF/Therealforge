@@ -81,6 +81,12 @@ a:hover, a:focus {
     background-color: var(--color-module-bg);
 }
 
+.logo {
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+}
+
 .primary-nav {
     display: flex;
     flex-wrap: wrap; 
